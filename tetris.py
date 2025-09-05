@@ -99,7 +99,8 @@ PIECES_KEYS = list(PIECES.keys())
 # Classe Tetris
 class Jeu:
 	"""
-	[Il manque la documentation de la classe]
+	Base du jeu : plateau, fenêtre, textes, fonctions de pause, début et fin de jeu. Faire apparaître des pièces, les placer, les faire tourner, vérifier qu'elle puissent 
+	être placer à l'endroit demandé, les faire descendre, changer de pièce.
 	"""
 	def __init__(self):
 		pygame.init()
