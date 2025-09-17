@@ -17,6 +17,7 @@ __email__ = "votre email"
 
 # Probleme de l'ordre des imports
 from pygame.locals import *
+from constantes import *
 import random
 import time
 import pygame
