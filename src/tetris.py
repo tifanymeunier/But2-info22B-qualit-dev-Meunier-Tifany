@@ -26,18 +26,18 @@ DIM_PLATEAU = 10, 20
 BORDURE_PLATEAU = 4
 TAILLE_BLOC = 20, 20
 
-TAILLE_PLATEAU = tuple([DIM_PLATEAU[i] * TAILLE_BLOC[i] for i in range(2)])
+TAILLE_PLATEAU = tuple(DIM_PLATEAU[i] * TAILLE_BLOC[i] for i in range(2))
 TAILLE_PLABORD = tuple(
-    [DIM_PLATEAU[i] * TAILLE_BLOC[i] + BORDURE_PLATEAU * 2 for i in range(2)])
+    DIM_PLATEAU[i] * TAILLE_BLOC[i] + BORDURE_PLATEAU * 2 for i in range(2))
 
-MARGE = tuple([
+MARGE = tuple(
     TAILLE_FENETRE[i] - TAILLE_PLATEAU[i] - BORDURE_PLATEAU * 2
     for i in range(2)
-])
+)
 START_PLATEAU = int(MARGE[0] / 2), MARGE[1] + 2 * BORDURE_PLATEAU
 START_PLABORD = int(MARGE[0] / 2) - BORDURE_PLATEAU, MARGE[1] + BORDURE_PLATEAU
 
-CENTRE_FENETRE = tuple([TAILLE_FENETRE[i] / 2 for i in range(2)])
+CENTRE_FENETRE = tuple(TAILLE_FENETRE[i] / 2 for i in range(2))
 POS = CENTRE_FENETRE[0], CENTRE_FENETRE[1] + 100
 POSITION_SCORE = TAILLE_FENETRE[0] - START_PLABORD[0] / 2, 120
 POSITION_PIECES = POSITION_SCORE[0], 150
@@ -318,19 +318,19 @@ class Jeu:
             for j, case in enumerate(ligne):
                 couleur = COULEURS[case]
                 position = j, i
-                coordonnees = tuple([
+                coordonnees = tuple(
                     START_PLATEAU[k] + position[k] * TAILLE_BLOC[k]
                     for k in range(2)
-                ])
+                )
                 pygame.draw.rect(self.surface, couleur,
                                  coordonnees + TAILLE_BLOC)
         if self.current is not None:
             for position in self.coordonnees:
                 couleur = COULEURS.get(self.get_current_piece_color())
-                coordonnees = tuple([
+                coordonnees = tuple(
                     START_PLATEAU[k] + position[k] * TAILLE_BLOC[k]
                     for k in range(2)
-                ])
+                )
                 pygame.draw.rect(self.surface, couleur,
                                  coordonnees + TAILLE_BLOC)
         self.score, self.pieces, self.lignes, self.tetris, self.niveau  #TODO
